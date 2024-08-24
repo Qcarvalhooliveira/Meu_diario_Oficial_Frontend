@@ -2,29 +2,12 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  height:15vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  z-index: 1;
 
-  /* Adiciona a camada sobreposta semi-transparente */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-  }
 
   .side-links {
     
@@ -62,22 +45,16 @@ export const HeaderContainer = styled.header`
    }
 }
 
-.intro {
-   
+.logo {
     display: flex;
-    flex-direction: column;
-    color: #fff;
-    font-size: 28px; 
-    font-weight: 600;
-    max-width: 450px; 
-    max-height: 200px; 
-    span {
-      color: #fff;
-      font-weight: 600;
-      font-size: 22px
+    padding-left: 40px;
+    margin-top: 25px;
+    
 
+    img {
+      width: 80px;
+      height: auto;
     }
-      
-}
+  }
 
 `;
