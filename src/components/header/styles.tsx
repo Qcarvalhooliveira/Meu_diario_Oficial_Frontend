@@ -31,7 +31,7 @@ export const HeaderContainer = styled.header`
       font-size: 14px;
       box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
       padding: 0.5rem 1rem;
-      background-color: #25bee463;
+      background-color: #25bee462;
       
     
       cursor: pointer;

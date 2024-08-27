@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { HomepageContainer, NavigationWrapper, Dots, Arrow } from "./styles";
+import { HomepageContainer, Dots, Arrow } from "./styles";
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 
@@ -45,14 +45,14 @@ export function Homepage() {
       <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h3>Bem-vindo ao Meu Diario Oficial!</h3>
+            <h1>Bem-vindo ao Meu Diario Oficial!</h1>
             <p>{typedText}</p>
           </div>
         </div>
 
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h3>Segundo Slide</h3>
+            <h1>Segundo Slide</h1>
             <p>Texto do segundo slide aqui.</p>
           </div>
           
@@ -60,7 +60,7 @@ export function Homepage() {
 
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h3>Terceiro Slide</h3>
+            <h1>Terceiro Slide</h1>
             <p>Texto do terceiro slide aqui.</p>
           </div>
         </div>

@@ -6,17 +6,11 @@ export const HomepageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url("../../assets/capa.jpg");
-  position: relative;
-  padding: 20px;
 
   .keen-slider {
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 700px;
+    height: 300px;
     border-radius: 10px;
     overflow: hidden;
   }
@@ -24,15 +18,26 @@ export const HomepageContainer = styled.div`
   .keen-slider__slide {
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
-    min-height: 600px; /* Define uma altura mínima para os slides */
-    background-color: rgba(0, 0, 0, 0.6); /* Cor de fundo para os slides */
+    max-width: 80%;
+    min-height: 900px;
+    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
-    padding: 20px;
+    
   }
 
   .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
     text-align: center;
+    width: 100%;
+    max-width: 550px;
+    height: 200px;
+    margin: 10px;
+
   }
 `;
 
@@ -43,10 +48,10 @@ export const Arrow = styled.button<{ left?: boolean; right?: boolean }>`
   transform: translateY(-50%);
   ${(props) => (props.left ? 'left: 10px;' : '')}
   ${(props) => (props.right ? 'right: 10px;' : '')}
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
   border: none;
   color: #fff;
-  font-size: 24px;
+  font-size: 34px;
   cursor: pointer;
   z-index: 2;
   border-radius: 50%;
@@ -66,7 +71,7 @@ export const Dots = styled.div`
   width: 100%;
   
   .dot {
-    background-color: #ccc;
+    background-color: #fff;
     border: none;
     width: 12px;
     height: 12px;
@@ -76,6 +81,6 @@ export const Dots = styled.div`
   }
 
   .dot.active {
-    background-color: #333;
+    background-color: #8b7a7a;
   }
 `;
