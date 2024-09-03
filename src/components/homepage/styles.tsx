@@ -13,6 +13,7 @@ export const HomepageContainer = styled.div`
     height: 300px;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
   }
 
   .keen-slider__slide {

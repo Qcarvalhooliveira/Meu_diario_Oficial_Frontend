@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 export const LoginpageContainer = styled.div`
 
-display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Faz a página de login ocupar toda a altura da janela */
+  height: 100vh;
 
   h1 {
-    text-align: center; /* Centraliza o texto do h1 */
-    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+    text-align: center;
+    margin-bottom: 20px;
     color: white;
   }
 
@@ -21,7 +21,7 @@ display: flex;
     box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
     padding: 30px;
     border-radius: 10px;
-    max-width: 400px; /* Largura máxima do formulário */
+    max-width: 400px;
     width: 100%;
   }
 
