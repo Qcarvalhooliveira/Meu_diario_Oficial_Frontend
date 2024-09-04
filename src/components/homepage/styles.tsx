@@ -40,6 +40,26 @@ export const HomepageContainer = styled.div`
     margin: 10px;
 
   }
+
+  .slide-content button {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 10px;
+    max-width: 100px;
+    margin-top: 10px;
+    background-color: #25bee473;
+    color: white;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #25bee4d6;
+    }
+  }
 `;
 
 // Estilos para as setas de navegação
@@ -84,4 +104,5 @@ export const Dots = styled.div`
   .dot.active {
     background-color: #8b7a7a;
   }
+
 `;

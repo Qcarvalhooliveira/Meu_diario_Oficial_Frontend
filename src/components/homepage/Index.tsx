@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { HomepageContainer, Dots, Arrow } from "./styles";
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
+import { useNavigate } from "react-router-dom";
 
 export function Homepage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -12,7 +13,7 @@ export function Homepage() {
   });
 
   const [typedText, setTypedText] = useState('');
-  const fullText = "Passionate about technology and innovation, I am on a continuous journey to enhance my skills in Web Development.";
+  const fullText = "Fique sempre informado quando seu nome for mencionado nas publicações oficiais de Salvador.";
   const typingDelay = 100;
   const readingTime = 5000;
   const restartDelay = 2000;
@@ -40,6 +41,8 @@ export function Homepage() {
     };
   }, [fullText, readingTime, typingDelay, restartDelay]);
 
+  const navigate = useNavigate(); 
+
   return (
     <HomepageContainer>
       <div ref={sliderRef} className="keen-slider">
@@ -52,8 +55,9 @@ export function Homepage() {
 
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h1>Segundo Slide</h1>
-            <p>Texto do segundo slide aqui.</p>
+            <h1>Sobre Nós</h1>
+            <p>O Meu Diário Oficial é um serviço que facilita o acompanhamento de publicações oficiais da cidade de Salvador.</p>
+            <button onClick={() => navigate("/about")}>Saiba mais</button>
           </div>
           
         </div>

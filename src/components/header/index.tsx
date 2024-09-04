@@ -16,7 +16,7 @@ export function Header() {
       
       {/* Div para conter os botões de login e cadastro */}
       <div className="side-links">
-      <button onClick={() => navigate("/login")}>Login</button>
+        <button onClick={() => navigate("/login")}>Login</button>
         <button onClick={() => navigate("/cadastrar")}>Cadastrar</button>
       </div>
     </HeaderContainer>
