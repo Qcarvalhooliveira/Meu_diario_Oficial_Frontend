@@ -54,6 +54,7 @@ export const HeaderContainer = styled.header`
     img {
       width: 80px;
       height: auto;
+      box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
     }
   }
 

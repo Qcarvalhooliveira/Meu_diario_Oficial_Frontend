@@ -46,7 +46,7 @@ export const HomepageContainer = styled.div`
     align-items:center;
     justify-content:center;
     padding: 10px;
-    max-width: 100px;
+    max-width: 200px;
     margin-top: 10px;
     background-color: #25bee473;
     color: white;

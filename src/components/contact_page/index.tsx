@@ -1,12 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { ContactContainer, Title, Form, Input, Textarea, Button } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -24,6 +26,8 @@ export function Contact() {
         setName("");
         setEmail("");
         setMessage("");
+        alert("Mensagem enviada com sucesso!");
+        navigate("/");
       } else {
         setStatus("Falha ao enviar a mensagem. Por favor, tente novamente.");
       }

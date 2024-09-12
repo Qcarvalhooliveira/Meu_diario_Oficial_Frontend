@@ -64,8 +64,9 @@ export function Homepage() {
 
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h1>Terceiro Slide</h1>
-            <p>Texto do terceiro slide aqui.</p>
+            <h1>Precisando de Ajuda?</h1>
+            <p>Fale conosco e tire suas dúvidas sobre nossas publicações. Estamos aqui para ajudar!</p>
+            <button onClick={() => navigate("/contact")}>Envie sua mensagem</button>
           </div>
         </div>
 

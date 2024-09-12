@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
-import { ConfirmButton, ConfirmDialog, DashboardpageContainer, Menu, MenuButton, MenuItem } from "./styles";
+import { ConfirmButton, ConfirmDialog, DashboardpageContainer, Menu, MenuButton, MenuItem, TimesSelected } from "./styles";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import dayjs from "dayjs";
 
-export function Dashboardpage() {
+interface DashboardpageProps {
+  handleLogout: () => void;
+}
+
+interface UserSelection {
+  selected_at: string; 
+}
+
+export function Dashboardpage({ handleLogout }: DashboardpageProps) { 
   const [menuOpen, setMenuOpen] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
+  const [selections, setSelections] = useState<UserSelection[]>([])
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,9 +38,10 @@ export function Dashboardpage() {
         });
 
         if (response.status === 200) {
-          const { name, id } = response.data;
+          const { name, id, selections } = response.data;
           setUserName(name);
           setUserId(id);
+          setSelections(selections);
         } else {
           console.error("Erro ao buscar os dados do usuário.");
         }
@@ -42,8 +53,9 @@ export function Dashboardpage() {
     fetchUserData();
   }, [navigate]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
+  // Função de logout
+  const handleLogoutClick = () => {
+    handleLogout();
     navigate("/");
   };
 
@@ -64,7 +76,7 @@ export function Dashboardpage() {
 
       if (response.status === 200) {
         alert("Usuário deletado com sucesso.");
-        handleLogout();
+        handleLogoutClick();
       } else {
         alert("Erro ao deletar usuário.");
       }
@@ -72,6 +84,10 @@ export function Dashboardpage() {
       console.error("Erro ao deletar usuário:", error);
       alert("Ocorreu um erro ao deletar o usuário. Tente novamente.");
     }
+  };
+
+  const formatDate = (dateString: string) => {
+    return dayjs(dateString).format("DD/MM/YYYY");
   };
 
   return (
@@ -84,12 +100,26 @@ export function Dashboardpage() {
 
       {menuOpen && (
         <Menu>
-          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+          <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
           <MenuItem onClick={() => setShowConfirm(true)}>Deletar Conta</MenuItem>
         </Menu>
       )}
 
       <p>Bem-vindo, {userName}</p>
+
+      <TimesSelected >
+        <h3>Aqui estão as datas em que seu nome foi mencionado no Diário Oficial:</h3>
+        <ul>
+          {selections.length > 0 ? (
+            selections.map((selection, index) => (
+              <li key={index}>{formatDate(selection.selected_at)}</li>
+            ))
+          ) : (
+            <p>Seu nome ainda não foi mencionado no Diário Oficial.</p>
+          )}
+        </ul>
+        </TimesSelected>
+
 
       {showConfirm && (
         <ConfirmDialog>

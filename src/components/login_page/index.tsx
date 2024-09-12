@@ -1,14 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import { LoginpageContainer } from "./styles";
 
-export function Loginpage() {
+
+interface LoginpageProps {
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function Loginpage({ setIsLoggedIn }: LoginpageProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -20,12 +25,10 @@ export function Loginpage() {
       });
 
       if (response.status === 200) {
-        const token = response.data.token;
-
-        localStorage.setItem("token", token);
-
+        localStorage.setItem("token", response.data.token);
         setStatus("Login realizado com sucesso!");
 
+        setIsLoggedIn(true);
         navigate("/dashboard");
       } else {
         setStatus("Falha ao realizar login. Por favor, tente novamente.");
@@ -73,7 +76,7 @@ export function Loginpage() {
         </div>
         <button type="submit">Entrar</button>
         {status && (
-          <p style={status !== "Login realizado com sucesso!" ? { color: "red", backgroundColor: "black" } : {}}>
+          <p style={status !== "Login realizado com sucesso!" ? { color: "white", backgroundColor: "#25bee473" } : {}}>
             {status}
           </p>
         )}
