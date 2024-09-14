@@ -8,10 +8,9 @@ export const AppContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  flex-direction: column; /* Alinha o Header e o conteúdo da Homepage verticalmente */
+  flex-direction: column;
   color: white;
   
-  /* Adiciona a camada sobreposta semi-transparente */
   &::before {
     content: '';
     position: absolute;

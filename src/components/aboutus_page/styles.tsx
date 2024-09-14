@@ -6,18 +6,19 @@ export const AboutuspageContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 60px auto;
+    margin: 4rem auto;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.767);
     box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
-    padding: 30px;
+    padding: 2rem;
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 31.5rem;
     width: 100%;
+    gap: 1rem;
 
   .h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     color: white;
   }
 

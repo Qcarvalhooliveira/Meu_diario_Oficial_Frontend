@@ -17,14 +17,12 @@ import { GlobalStyle } from "./styles/global";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  
   useEffect(() => {
     const checkAuth = () => {
       const token = localStorage.getItem("token");
       setIsLoggedIn(!!token); 
     };
 
-  
     checkAuth();
 
     window.addEventListener("storage", checkAuth);

@@ -6,11 +6,11 @@ export const SigninpageContainer = styled.div`
 display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Faz a página de login ocupar toda a altura da janela */
+  height: 100vh;
 
   h1 {
-    text-align: center; /* Centraliza o texto do h1 */
-    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+    text-align: center;
+    margin-bottom: 1.5rem;
     color: white;
   }
 
@@ -19,35 +19,35 @@ display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.6);
     box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
-    padding: 30px;
+    padding: 2rem;
     border-radius: 10px;
-    max-width: 400px; /* Largura máxima do formulário */
+    max-width: 25rem;
     width: 100%;
   }
 
   .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
   }
 
 
   label {
-    margin-bottom: 5px;
+    margin-bottom: 0.4rem;
     font-weight: bold;
   }
 
   input {
-    padding: 10px;
+    padding: 0.7rem;
     border: 1px solid #ddd;
     border-radius: 22px;
   }
 
   button {
-    padding: 10px;
-    max-width: 100px;
-    margin-top: 10px;
-    margin-left: 300px;
+    padding: 0.7rem;
+    max-width: 6.5rem;
+    margin-top: 0.7rem;
+    margin-left: 19rem;
     background-color: #25bee473;
     color: white;
     border: none;

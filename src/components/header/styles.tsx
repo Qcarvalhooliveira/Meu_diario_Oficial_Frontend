@@ -12,10 +12,10 @@ export const HeaderContainer = styled.header`
   .side-links {
     
     position: absolute;
-    top: 50px;
-    right:100px;
+    top: 3.2rem;
+    right:6.5rem;
     display: flex;
-    gap: 15px; 
+    gap: 1rem; 
 
    button {
       background: transparent;
@@ -24,8 +24,8 @@ export const HeaderContainer = styled.header`
       text-align: center;
       padding: 0.5rem 1rem;
       color: #ffffffdf;
-      width: 130px;
-      height: 35px;
+      width: 8.2rem;
+      height: 2.2rem;
       border-radius: 22px;
       font-weight: 600;
       font-size: 14px;
@@ -47,12 +47,12 @@ export const HeaderContainer = styled.header`
 
 .logo {
     display: flex;
-    padding-left: 40px;
-    margin-top: 25px;
+    padding-left: 2.5rem;
+    margin-top: 1.6rem;
     
 
     img {
-      width: 80px;
+      width: 5rem;
       height: auto;
       box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
     }

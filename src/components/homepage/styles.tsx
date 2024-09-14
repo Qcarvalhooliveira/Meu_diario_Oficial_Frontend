@@ -9,8 +9,8 @@ export const HomepageContainer = styled.div`
 
   .keen-slider {
     width: 100%;
-    max-width: 700px;
-    height: 300px;
+    max-width: 44rem;
+    height: 19rem;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
@@ -22,7 +22,7 @@ export const HomepageContainer = styled.div`
     text-align: center;
     align-items: center;
     max-width: 80%;
-    min-height: 900px;
+    min-height: 56.5rem;
     background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
     
@@ -35,9 +35,10 @@ export const HomepageContainer = styled.div`
     justify-content: center;
     text-align: center;
     width: 100%;
-    max-width: 550px;
-    height: 200px;
-    margin: 10px;
+    max-width: 34.5rem;
+    height: 12.5rem;
+    margin: 0.7rem;
+    gap: 1.5rem;
 
   }
 
@@ -45,9 +46,9 @@ export const HomepageContainer = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
-    padding: 10px;
-    max-width: 200px;
-    margin-top: 10px;
+    padding: 0.7rem;
+    max-width: 12.5rem;
+    margin-top: 0.7rem;
     background-color: #25bee473;
     color: white;
     border: none;
@@ -62,7 +63,6 @@ export const HomepageContainer = styled.div`
   }
 `;
 
-// Estilos para as setas de navegação
 export const Arrow = styled.button<{ left?: boolean; right?: boolean }>`
   position: absolute;
   top: 50%;
@@ -76,27 +76,27 @@ export const Arrow = styled.button<{ left?: boolean; right?: boolean }>`
   cursor: pointer;
   z-index: 2;
   border-radius: 50%;
-  padding: 5px;
+  padding: 0.4rem;
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
 `;
 
-// Estilos para os indicadores (bolinhas)
+
 export const Dots = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 1rem;
   position: absolute;
-  bottom: 20px;
+  bottom: 1.5rem;
   width: 100%;
   
   .dot {
     background-color: #fff;
     border: none;
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 0 0.4rem;
     border-radius: 50%;
     cursor: pointer;
   }
