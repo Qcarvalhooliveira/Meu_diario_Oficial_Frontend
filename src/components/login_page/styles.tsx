@@ -47,7 +47,7 @@ export const LoginpageContainer = styled.div`
     padding: 0.7rem;
     max-width: 6.5rem;
     margin-top: 0.7rem;
-    margin-left: 19rem;
+    margin-left: 15rem;
     background-color: #25bee473;
     color: white;
     border: none;

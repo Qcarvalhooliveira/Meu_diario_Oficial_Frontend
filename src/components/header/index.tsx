@@ -9,9 +9,13 @@ interface HeaderProps {
 export function Header({ isLoggedIn }: HeaderProps) {
   const navigate = useNavigate();
 
+  const handleLogoNavigateToHomePage = () =>{
+    navigate('/')
+  }
+
   return (
     <HeaderContainer>
-      <div className="logo">
+      <div className="logo" onClick={handleLogoNavigateToHomePage}>
         <img src={logo} alt="logo_diario" />
       </div>
 
