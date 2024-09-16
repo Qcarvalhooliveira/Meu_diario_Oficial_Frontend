@@ -145,28 +145,33 @@ The authentication is handled by storing a JWT token in localStorage. The token 
 
 On login, the JWT token is stored like this:
 
-js
-
+```
 localStorage.setItem("token", response.data.token);
+```
 
 And to check if the user is logged in:
 
-js
-
+```
 const token = localStorage.getItem("token");
 if (token) {
   // User is logged in
 }
+```
+
 
 The App.tsx keeps track of the user's login state and hides/shows navigation buttons accordingly.
-Contributing
 
-We welcome contributions to the project! To contribute:
 
-    Fork the repository.
-    Create a new branch (git checkout -b feature/your-feature).
-    Make your changes.
-    Submit a pull request.
+## **Contributing**
+
+Contributions are welcome to the project! 
+
+To contribute:
+
+* Fork the repository.
+* Create a new branch (git checkout -b feature/your-feature).
+* Make your changes.
+* Submit a pull request.
 
 Make sure to run the tests and follow the code style guidelines before submitting.
 
