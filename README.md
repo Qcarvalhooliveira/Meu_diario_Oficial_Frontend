@@ -1,12 +1,12 @@
 <img src="https://github.com/Qcarvalhooliveira/Meu_diario_Oficial_Frontend/blob/main/image/capa.png">
 
 
-# **Meu Diário Oficial - Frontend**
+# **Meu Diário Oficial - Frontend** :computer:
 
 * This is the front-end part of the Meu Diário Oficial project, which facilitates tracking of official publications in Salvador city. The front-end is built with React and TypeScript, providing an intuitive interface where users can log in, register, view dashboards, and manage their accounts.
 
 
-## **Table of Contents**
+## **Table of Contents** :clipboard:
 
 * Features
 * Technologies
@@ -20,7 +20,7 @@
 * Author
 
 
-## **Features**
+## **Features** :memo:
 
 * **User Authentication:** Log in, register, and log out functionalities integrated with the backend.
     
@@ -35,7 +35,7 @@
 * **Access Control:** User-based access to control dashboard page.
 
 
-## **Technologies**
+## **Technologies** :dart:
 
 * **React:** JavaScript library for building user interfaces.
 
@@ -52,24 +52,24 @@
 * **Day.js:** Used for date formatting on the Dashboard .
 
 
-## **Installation**
+## **Installation** :vertical_traffic_light:
 
 To get the front-end running locally, follow these steps:
 
-* **1. Clone the repository:**
+* **1. Clone the repository:** :construction: 
 
 ```
 git clone https://github.com/Qcarvalhooliveira/Meu_diario_Oficial_Frontend
 cd Meu_diario_Oficial_Frontend
 ```
 
-* **2. Install dependencies:**
+* **2. Install dependencies:** :round_pushpin:
 
 ```
 npm install
 ```
 
-* **3. Set up environment variables (if applicable):**
+* **3. Set up environment variables (if applicable):** :triangular_flag_on_post: 
 
     If you are using environment variables such as API URLs or keys, create a .env file in the root of the project and add your variables. Example:
 
@@ -77,7 +77,7 @@ npm install
 REACT_APP_API_URL=http://localhost:5000
 ```
 
-* **4. Run the project:**
+* **4. Run the project:** :busstop:
 
 ```
 npm run dev
@@ -86,7 +86,7 @@ npm run dev
 This will start the development server on http://localhost:3000/.
 
 
-## **Running the Project**
+## **Running the Project** :checkered_flag:
 
 Once the development server is running, open your browser and navigate to:
 
@@ -96,12 +96,12 @@ http://localhost:3000/
 
 The homepage will be displayed with the option to log in, register, or view more information about the project.
 
-## **Project Structure**
+## **Project Structure** :bulb:
 
 <img src="https://github.com/Qcarvalhooliveira/Meu_diario_Oficial_Frontend/blob/main/image/Project%20Structure.png">
 
 
-## **Key Directories**
+## **Key Directories** :key:
 
 * **components:** This directory contains all the reusable UI components like Header, Homepage, Footer, Dashboard, and others.
 
@@ -110,7 +110,7 @@ The homepage will be displayed with the option to log in, register, or view more
 * **styles:** Contains global styles and component-specific styles created using styled-components.
 
 
-## **Available Routes**
+## **Available Routes** :mag_right:
 
 The following routes are available in the front-end:
 
@@ -131,11 +131,11 @@ The following routes are available in the front-end:
 * **/privacy:** Privacy Policy page.
 
 
-## **API Integration**
+## **API Integration** :dizzy:
 
 The front-end communicates with the backend (Flask API) for user authentication, account management, and fetching user-specific data. Axios is used to make HTTP requests.
 
-* Example of API calls:
+**Example of API calls:** :star:
 
 * **Login:** POST request to http://localhost:5000/login.
 
@@ -146,7 +146,7 @@ The front-end communicates with the backend (Flask API) for user authentication,
 Make sure to update the API URL in the .env file if necessary.
 
 
-## **Authentication**
+## **Authentication** :ok_hand:
 
 The authentication is handled by storing a JWT token in localStorage. The token is then included in the headers of API requests that require authentication.
 
@@ -169,7 +169,7 @@ if (token) {
 The App.tsx keeps track of the user's login state and hides/shows navigation buttons accordingly.
 
 
-## **Contributing**
+## **Contributing** :sparkles:
 
 Contributions are welcome to the project! 
 
