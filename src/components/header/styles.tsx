@@ -49,12 +49,15 @@ export const HeaderContainer = styled.header`
     display: flex;
     padding-left: 2.5rem;
     margin-top: 1.6rem;
+    cursor: pointer;
+    transition:0.3s;
     
 
     img {
       width: 5rem;
       height: auto;
       box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
+
     }
   }
 
