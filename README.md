@@ -49,6 +49,8 @@
     
 * **KeenSlider:** For implementing the carousel in the homepage.
 
+* **Day.js:** Used for date formatting on the Dashboard .
+
 
 ## **Installation**
 
