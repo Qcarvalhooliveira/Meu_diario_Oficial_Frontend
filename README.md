@@ -1,6 +1,10 @@
+<img src="https://github.com/Qcarvalhooliveira/Meu_diario_Oficial_Frontend/blob/main/image/capa.png">
+
+
 # **Meu Diário Oficial - Frontend**
 
 * This is the front-end part of the Meu Diário Oficial project, which facilitates tracking of official publications in Salvador city. The front-end is built with React and TypeScript, providing an intuitive interface where users can log in, register, view dashboards, and manage their accounts.
+
 
 ## **Table of Contents**
 
@@ -14,6 +18,7 @@
 * Authentication
 * Contributing
 * Author
+
 
 ## **Features**
 
@@ -49,20 +54,20 @@
 
 To get the front-end running locally, follow these steps:
 
-* **1.Clone the repository:**
+* **1. Clone the repository:**
 
 ```
 git clone https://github.com/Qcarvalhooliveira/Meu_diario_Oficial_Frontend
 cd Meu_diario_Oficial_Frontend
 ```
 
-* **2.Install dependencies:**
+* **2. Install dependencies:**
 
 ```
 npm install
 ```
 
-* **3.Set up environment variables (if applicable):**
+* **3. Set up environment variables (if applicable):**
 
     If you are using environment variables such as API URLs or keys, create a .env file in the root of the project and add your variables. Example:
 
@@ -70,7 +75,7 @@ npm install
 REACT_APP_API_URL=http://localhost:5000
 ```
 
-* **4.Run the project:**
+* **4. Run the project:**
 
 ```
 npm run dev
@@ -91,7 +96,7 @@ The homepage will be displayed with the option to log in, register, or view more
 
 ## **Project Structure**
 
-
+<img src="https://github.com/Qcarvalhooliveira/Meu_diario_Oficial_Frontend/blob/main/image/Project%20Structure.png">
 
 
 ## **Key Directories**
