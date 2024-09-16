@@ -13,7 +13,7 @@
 * API Integration
 * Authentication
 * Contributing
-* License
+* Author
 
 ## **Features**
 
@@ -92,53 +92,54 @@ The homepage will be displayed with the option to log in, register, or view more
 ## **Project Structure**
 
 
-src/
-│
-├── assets/                 # Static assets (images, logos)
-├── components/             # Reusable components (Header, Footer, etc.)
-│   ├── header/             
-│   ├── footer/             
-│   ├── dashboard_page/     
-│   ├── homepage/           
-│   └── ...                 
-├── pages/                  # Page components for different routes (Login, Register, Contact, etc.)
-├── styles/                 # Global and shared styles
-├── App.tsx                 # Main entry point for React
-├── routes.tsx              # Route definitions for React Router
-├── index.tsx               # ReactDOM render
-└── ...
 
-Key Directories
 
-    components: This directory contains all the reusable UI components like Header, Footer, Dashboard, and others.
-    pages: Each route in the application (e.g., /login, /dashboard, /about) has its own page component in this folder.
-    styles: Contains global styles and component-specific styles created using styled-components.
+## **Key Directories**
 
-Available Routes
+* **components:** This directory contains all the reusable UI components like Header, Homepage, Footer, Dashboard, and others.
+
+* **pages:** Inside components, each route in the application (e.g., /login, /dashboard, /aboutus) has its own page component in this folder.
+    
+* **styles:** Contains global styles and component-specific styles created using styled-components.
+
+
+## **Available Routes**
 
 The following routes are available in the front-end:
 
-    /: Homepage with an introductory carousel.
-    /login: User login page.
-    /cadastrar: User registration page.
-    /dashboard: Dashboard page, available only after logging in.
-    /about: About us page, providing information about the service.
-    /contact: Contact page, allowing users to send messages to the application team.
-    /terms: Terms of Service page.
-    /privacy: Privacy Policy page.
+* **/:** Homepage with an introductory carousel.
 
-API Integration
+* **/login:** User login page.
+
+* **/cadastrar:** User registration page.
+
+* **/dashboard:** Dashboard page, available only after logging in.
+
+* **/about:** About us page, providing information about the service.
+    
+* **/contact:** Contact page, allowing users to send messages to the application team.
+
+* **/terms:** Terms of Service page.
+    
+* **/privacy:** Privacy Policy page.
+
+
+## **API Integration**
 
 The front-end communicates with the backend (Flask API) for user authentication, account management, and fetching user-specific data. Axios is used to make HTTP requests.
 
-Example of API calls:
+* Example of API calls:
 
-    Login: POST request to http://localhost:5000/login.
-    Register: POST request to http://localhost:5000/add_user.
-    Delete Account: DELETE request to http://localhost:5000/delete_user/:id.
+* **Login:** POST request to http://localhost:5000/login.
+
+* **Register:** POST request to http://localhost:5000/add_user.
+
+* **Delete Account:** DELETE request to http://localhost:5000/delete_user/:id.
 
 Make sure to update the API URL in the .env file if necessary.
-Authentication
+
+
+## **Authentication**
 
 The authentication is handled by storing a JWT token in localStorage. The token is then included in the headers of API requests that require authentication.
 
@@ -168,3 +169,8 @@ We welcome contributions to the project! To contribute:
     Submit a pull request.
 
 Make sure to run the tests and follow the code style guidelines before submitting.
+
+
+## **Author** :black_nib:
+
+* **Queise Carvalho de Oliveira** - [Linkedin](https://www.linkedin.com/in/queise-carvalho-de-oliveira-50359749/)
