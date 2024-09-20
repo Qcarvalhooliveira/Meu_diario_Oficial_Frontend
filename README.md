@@ -51,6 +51,8 @@
 
 * **Day.js:** Used for date formatting on the Dashboard .
 
+* **i18next**:  Used to handle translations, with the app already set up in English.
+
 
 ## **Installation** :vertical_traffic_light:
 
