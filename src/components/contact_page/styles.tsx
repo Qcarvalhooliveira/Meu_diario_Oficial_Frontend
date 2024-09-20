@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContactContainer = styled.div`
     display: flex;
-    margin: 1.5rem auto;
+    margin: 4rem auto;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.6);
     box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);

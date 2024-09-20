@@ -3,13 +3,10 @@ import { DashboardpageContainer, MenuButton,  Menu, MenuItem, ConfirmDialog, Con
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
+import { useTranslation } from "react-i18next";
 
 interface DashboardpageProps {
   handleLogout: () => void;
-}
-
-interface UserSelection {
-  selected_at: string; 
 }
 
 export function Dashboardpage({ handleLogout }: DashboardpageProps) { 
@@ -17,8 +14,9 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
   const [showConfirm, setShowConfirm] = useState(false);
   const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
-  const [selections, setSelections] = useState<UserSelection[]>([])
+  const [selections, setSelections] = useState<string[]>([])
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -53,7 +51,7 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
     fetchUserData();
   }, [navigate]);
 
-  // Função de logout
+ 
   const handleLogoutClick = () => {
     handleLogout();
     navigate("/");
@@ -92,7 +90,7 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
 
   return (
     <DashboardpageContainer>
-      <h1>Dashboard</h1>
+      <h1>{t('Painel de Informações')}</h1>
 
       <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
         &#9776;
@@ -100,22 +98,22 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
 
       {menuOpen && (
         <Menu>
-          <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
-          <MenuItem onClick={() => setShowConfirm(true)}>Deletar Conta</MenuItem>
+          <MenuItem onClick={handleLogoutClick}>{t('Logout')}</MenuItem>
+          <MenuItem onClick={() => setShowConfirm(true)}>{t('Deletar Conta')}</MenuItem>
         </Menu>
       )}
 
-      <p>Bem-vindo, {userName}</p>
+      <p>{t('Bem-vindo')}, {userName}</p>
 
       <TimesSelected >
-        <h3>Aqui estão as datas em que seu nome foi mencionado no Diário Oficial:</h3>
+        <h3>{t('Aqui estão as datas em que seu nome foi mencionado no Diário Oficial:')}</h3>
         <ul>
           {selections.length > 0 ? (
             selections.map((selection, index) => (
-              <li key={index}>{formatDate(selection.selected_at)}</li>
+              <li key={index}>{formatDate(selection)}</li>
             ))
           ) : (
-            <p>Seu nome ainda não foi mencionado no Diário Oficial.</p>
+            <p>{t('Seu nome ainda não foi mencionado no Diário Oficial.')}</p>
           )}
         </ul>
         </TimesSelected>
@@ -123,9 +121,9 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
 
       {showConfirm && (
         <ConfirmDialog>
-          <p>Você tem certeza que deseja deletar sua conta?</p>
-          <ConfirmButton onClick={handleDeleteAccount}>Sim</ConfirmButton>
-          <ConfirmButton onClick={() => setShowConfirm(false)}>Não</ConfirmButton>
+          <p>{t('Você tem certeza que deseja deletar sua conta?')}</p>
+          <ConfirmButton onClick={handleDeleteAccount}>{t('Sim')}</ConfirmButton>
+          <ConfirmButton onClick={() => setShowConfirm(false)}>{t('Não')}</ConfirmButton>
         </ConfirmDialog>
       )}
     </DashboardpageContainer>

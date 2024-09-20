@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ContactContainer, Title, Form, Input, Textarea, Button } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function Contact() {
   const [name, setName] = useState("");
@@ -9,6 +10,7 @@ export function Contact() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -39,30 +41,30 @@ export function Contact() {
 
   return (
     <ContactContainer>
-      <Title>Contato</Title>
+      <Title>{t('Contato')}</Title>
       <Form onSubmit={handleSubmit}>
         <Input 
           type="text" 
-          placeholder="Nome" 
+          placeholder={t('Nome')}
           value={name} 
           onChange={(e) => setName(e.target.value)} 
           required 
         />
         <Input 
           type="email" 
-          placeholder="Email" 
+          placeholder={t('Email')}
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
           required 
         />
         <Textarea 
           rows={5} 
-          placeholder="Mensagem" 
+          placeholder={t('Mensagem')}
           value={message} 
           onChange={(e) => setMessage(e.target.value)} 
           required 
         ></Textarea>
-        <Button type="submit">Enviar</Button>
+        <Button type="submit">{t('Enviar')}</Button>
       </Form>
       {status && <p>{status}</p>}
     </ContactContainer>

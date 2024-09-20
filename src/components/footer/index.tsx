@@ -1,28 +1,27 @@
 import { FooterContainer, LinkSection, LinkItem } from "./styles";
 import logo from "../../assets/logo.png";
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
-  // Pega o ano atual dinamicamente
   const currentYear = new Date().getFullYear();
+
+  const { t } = useTranslation();
 
   return (
     <FooterContainer>
-      {/* Logo da Empresa */}
       <div className="logo">
         <img src={logo} alt="logo_diario" />
       </div>
       <div className="footersection">
-      {/* Seção de Links */}
       <LinkSection>
-        <LinkItem href="/about">Sobre nós</LinkItem>
-        <LinkItem href="/contact">Contato</LinkItem>
-        <LinkItem href="/terms">Termos de Serviço</LinkItem>
-        <LinkItem href="/privacy">Política de Privacidade</LinkItem>
+        <LinkItem href="/about">{t('Sobre Nós')}</LinkItem>
+        <LinkItem href="/contact">{t('Contato')}</LinkItem>
+        <LinkItem href="/terms">{t('Termos de Serviço')}</LinkItem>
+        <LinkItem href="/privacy">{t('Política de Privacidade')}</LinkItem>
       </LinkSection>
 
-      {/* Texto de Direitos Autorais */}
       <div className="copyright">
-        Meu Diário Oficial © {currentYear}. Todos os direitos reservados.
+        Meu Diário Oficial © {currentYear}. {t('Todos os direitos reservados.')}
       </div>
       </div>
     </FooterContainer>

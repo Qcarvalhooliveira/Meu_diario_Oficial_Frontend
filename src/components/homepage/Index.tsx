@@ -3,8 +3,9 @@ import { HomepageContainer, Dots, Arrow } from "./styles";
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import { useNavigate } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 export function Homepage() {
+  const { t , i18n} = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider({
     slideChanged(slider) {
@@ -13,13 +14,14 @@ export function Homepage() {
   });
 
   const [typedText, setTypedText] = useState('');
-  const fullText = "Fique sempre informado quando seu nome for mencionado nas publicações oficiais de Salvador.";
   const typingDelay = 100;
   const readingTime = 5000;
   const restartDelay = 2000;
 
   useEffect(() => {
     const typeText = (index = 0, currentText = '') => {
+      const fullText = t('Fique sempre informado quando seu nome for mencionado nas publicações oficiais de Salvador.');
+  
       if (index < fullText.length) {
         const nextText = currentText.slice(0, -1) + fullText[index] + '|';
         setTypedText(nextText);
@@ -39,34 +41,36 @@ export function Homepage() {
     return () => {
       setTypedText('');
     };
-  }, [fullText, readingTime, typingDelay, restartDelay]);
+  }, [t, readingTime, typingDelay, restartDelay, i18n]);
 
   const navigate = useNavigate(); 
+
+  
 
   return (
     <HomepageContainer>
       <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h1>Bem-vindo ao Meu Diario Oficial!</h1>
+            <h1>{t('Bem-vindo ao Meu Diario Oficial!')}</h1>
             <p>{typedText}</p>
           </div>
         </div>
 
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h1>Sobre Nós</h1>
-            <p>O Meu Diário Oficial é um serviço que facilita o acompanhamento de publicações oficiais da cidade de Salvador.</p>
-            <button onClick={() => navigate("/about")}>Saiba mais</button>
+            <h1>{t('Sobre Nós')}</h1>
+            <p>{t('O Meu Diário Oficial é um serviço que facilita o acompanhamento de publicações oficiais da cidade de Salvador.')}</p>
+            <button onClick={() => navigate("/about")}>{t('Saiba mais')}</button>
           </div>
           
         </div>
 
         <div className="keen-slider__slide">
           <div className="slide-content">
-            <h1>Precisando de Ajuda?</h1>
-            <p>Fale conosco e tire suas dúvidas sobre nossas publicações. Estamos aqui para ajudar!</p>
-            <button onClick={() => navigate("/contact")}>Envie sua mensagem</button>
+            <h1>{t('Precisando de Ajuda?')}</h1>
+            <p>{t('Fale conosco e tire suas dúvidas sobre nossas publicações. Estamos aqui para ajudar!')}</p>
+            <button onClick={() => navigate("/contact")}>{t('Envie sua mensagem')}</button>
           </div>
         </div>
 

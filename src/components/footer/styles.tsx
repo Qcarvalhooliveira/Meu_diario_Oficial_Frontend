@@ -8,10 +8,11 @@ export const FooterContainer = styled.footer`
   align-items: center;
   background-color: #00619B;
   box-shadow: 3px 3px 10px 3px rgba(0.25,0.25,0.25,0.25);
-  
+
 
   .logo {
     display: flex;
+    justify-content: center;
     img {
       margin: 1.5rem;
       width: 5rem;
@@ -23,6 +24,7 @@ export const FooterContainer = styled.footer`
   .copyright {
     color: #ffffff;
     font-size: 14px;
+    text-align: center;
   }
 
   .footersection {
@@ -34,16 +36,43 @@ export const FooterContainer = styled.footer`
     width: 100%;
     max-width: 80%;
     gap: 2rem;
-    height: 6.5rem;
     margin: 0.7rem;
  }
 
-`;
+ @media screen and (max-width: 768px) {
 
+  display: flex;
+  height: 40vh;
+  justify-content: center;
+  
+
+  .logo {
+    position: relative;
+    display: flex;
+    top: -4rem;
+    img {
+      width: 4rem;
+      height: auto
+    }
+  }
+
+  .copyright {
+    margin-left: -8rem;
+  }
+
+}
+`;
 
 export const LinkSection = styled.div`
   display: flex;
   gap: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: -7rem;
+  }
 `;
 
 export const LinkItem = styled.a`
@@ -53,4 +82,7 @@ export const LinkItem = styled.a`
   &:hover {
     text-decoration: underline;
   }
+
 `;
+
+  

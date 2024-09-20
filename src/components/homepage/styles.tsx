@@ -21,7 +21,7 @@ export const HomepageContainer = styled.div`
     justify-content: center;
     text-align: center;
     align-items: center;
-    max-width: 80%;
+    max-width: 60rem;
     min-height: 56.5rem;
     background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
@@ -35,7 +35,7 @@ export const HomepageContainer = styled.div`
     justify-content: center;
     text-align: center;
     width: 100%;
-    max-width: 34.5rem;
+    max-width: 34rem;
     height: 12.5rem;
     margin: 0.7rem;
     gap: 1.5rem;

@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
 import { LoginpageContainer } from "./styles";
+import { useTranslation } from "react-i18next";
 
 
 interface LoginpageProps {
@@ -12,6 +13,7 @@ export function Loginpage({ setIsLoggedIn }: LoginpageProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
+  const { t } = useTranslation();
   
   const navigate = useNavigate(); 
 
@@ -51,30 +53,30 @@ export function Loginpage({ setIsLoggedIn }: LoginpageProps) {
   return (
     <LoginpageContainer>
       <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
+        <h1>{t('Login')}</h1>
         <div className="input-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t('Email')}</label>
           <input 
             type="email" 
             id="email" 
-            name="email" 
+            name={t('email')} 
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}  
           />
         </div>
         <div className="input-group">
-          <label htmlFor="password">Senha</label>
+          <label htmlFor="password">{t('Senha')}</label>
           <input 
             type="password" 
             id="password" 
-            name="password" 
+            name={t('password')} 
             required 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit">{t('Entrar')}</button>
         {status && (
           <p style={status !== "Login realizado com sucesso!" ? { color: "white", backgroundColor: "#25bee473" } : {}}>
             {status}

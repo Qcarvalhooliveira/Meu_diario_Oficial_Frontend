@@ -14,6 +14,7 @@ export const PrivacypageContainer = styled.div`
     border-radius: 10px;
     max-width: 62.5rem;
     width: 100%;
+    min-height: 100vh;
     gap: 1rem;
 
   .h1 {
@@ -29,7 +30,12 @@ export const PrivacypageContainer = styled.div`
     max-width: 100%;
     margin: 0;
     font-size: 18px;
-    
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    min-height: auto;
+    padding: 1rem;
     
   }
 `

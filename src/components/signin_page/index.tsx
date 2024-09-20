@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SigninpageContainer } from "./styles";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function Signinpage() {
   const [name, setName] = useState("");
@@ -9,6 +10,7 @@ export function Signinpage() {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -45,40 +47,40 @@ export function Signinpage() {
   return (
     <SigninpageContainer>
       <form onSubmit={handleSubmit}>
-        <h1>Cadastrar</h1>
+        <h1>{t('Cadastrar')}</h1>
         <div className="input-group">
-          <label htmlFor="name">Nome Completo</label>
+          <label htmlFor="name">{t('Nome Completo')}</label>
           <input
             type="name" 
             id="name"
-            name="name"
+            name={t('name')}
             required
             value={name} 
             onChange={(e) => setName(e.target.value)} 
           />
         </div>
         <div className="input-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t('Email')}</label>
           <input
             type="email"
             id="email" 
-            name="email" 
+            name={t('email')}
             required 
             value={email}
             onChange={(e) => setEmail(e.target.value)} 
           />
         </div>
         <div className="input-group">
-          <label htmlFor="password">Senha</label>
+          <label htmlFor="password">{t('Senha')}</label>
           <input 
           type="password" 
           id="password" 
-          name="password"
+          name={('password')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required />
         </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">{t('Cadastrar')}</button>
         {status && 
          <p style={status !== "Usuário criado com sucesso!" ? { color: "white", backgroundColor: "#25bee473" } : {}}>
          {status}
