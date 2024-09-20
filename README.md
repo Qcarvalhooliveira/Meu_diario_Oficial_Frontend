@@ -3,6 +3,8 @@
 
 # **Meu Diário Oficial - Frontend** :computer:
 
+## **Overview** :mag_right:
+
 * This is the front-end part of the Meu Diário Oficial project, which facilitates tracking of official publications in Salvador city. The front-end is built with React and TypeScript, providing an intuitive interface where users can log in, register, view dashboards, and manage their accounts.
 
 
