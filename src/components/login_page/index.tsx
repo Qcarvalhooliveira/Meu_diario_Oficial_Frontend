@@ -28,31 +28,31 @@ export function Loginpage({ setIsLoggedIn }: LoginpageProps) {
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        setStatus("Login realizado com sucesso!");
+        setStatus(t("Login realizado com sucesso!"));
 
         setIsLoggedIn(true);
         navigate("/dashboard");
       } else {
-        setStatus("Falha ao realizar login. Por favor, tente novamente.");
+        setStatus(t("Falha ao realizar login. Por favor, tente novamente."));
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response && error.response.status === 401) {
-          setStatus("Email ou senha incorretos.");
+          setStatus(t("Email ou senha incorretos."));
         } else {
-          console.error("Erro ao realizar login:", error);
-          setStatus("Ocorreu um erro. Por favor, tente novamente.");
+          console.error(t("Erro ao realizar login:"), error);
+          setStatus(t("Ocorreu um erro. Por favor, tente novamente."));
         }
       } else {
-        console.error("Erro desconhecido:", error);
-        setStatus("Ocorreu um erro desconhecido. Por favor, tente novamente.");
+        console.error(t("Erro desconhecido:"), error);
+        setStatus(t("Ocorreu um erro desconhecido. Por favor, tente novamente."));
       }
     }
   };
 
   return (
     <LoginpageContainer>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} aria-label={t("Formulário de login")}>
         <h1>{t('Login')}</h1>
         <div className="input-group">
           <label htmlFor="email">{t('Email')}</label>
@@ -63,6 +63,8 @@ export function Loginpage({ setIsLoggedIn }: LoginpageProps) {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}  
+            aria-required="true"
+            aria-label={t("Campo de email")}
           />
         </div>
         <div className="input-group">
@@ -74,11 +76,17 @@ export function Loginpage({ setIsLoggedIn }: LoginpageProps) {
             required 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            aria-required="true"
+            aria-label={t("Campo de senha")}
           />
         </div>
-        <button type="submit">{t('Entrar')}</button>
+        <button type="submit" aria-label={t('Entrar')}>{t('Entrar')}</button>
         {status && (
-          <p style={status !== "Login realizado com sucesso!" ? { color: "white", backgroundColor: "#25bee473" } : {}}>
+          <p 
+            role="alert" 
+            style={status !== t("Login realizado com sucesso!") ? { color: "white", backgroundColor: "#25bee473" } : {}}
+            aria-live="polite"
+          >
             {status}
           </p>
         )}

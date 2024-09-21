@@ -24,49 +24,62 @@ export function Contact() {
       });
 
       if (response.status === 200) {
-        setStatus("Mensagem enviada com sucesso!");
+        setStatus(t("Mensagem enviada com sucesso!"));
         setName("");
         setEmail("");
         setMessage("");
-        alert("Mensagem enviada com sucesso!");
+        alert(t("Mensagem enviada com sucesso!"));
         navigate("/");
       } else {
-        setStatus("Falha ao enviar a mensagem. Por favor, tente novamente.");
+        setStatus(t("Falha ao enviar a mensagem. Por favor, tente novamente."));
       }
     } catch (error) {
-      console.error("Erro ao enviar a mensagem:", error);
-      setStatus("Ocorreu um erro. Por favor, tente novamente.");
+      console.error(t("Erro ao enviar a mensagem:"), error);
+      setStatus(t("Ocorreu um erro. Por favor, tente novamente."));
     }
   };
 
   return (
     <ContactContainer>
-      <Title>{t('Contato')}</Title>
+      <Title tabIndex={0}>{t('Contato')}</Title>
       <Form onSubmit={handleSubmit}>
+        <label htmlFor="name">{t('Nome')}</label>
         <Input 
+          id="name"
           type="text" 
           placeholder={t('Nome')}
           value={name} 
           onChange={(e) => setName(e.target.value)} 
           required 
+          aria-required="true"
         />
+        
+        <label htmlFor="email">{t('Email')}</label>
         <Input 
+          id="email"
           type="email" 
           placeholder={t('Email')}
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
           required 
+          aria-required="true"
         />
+
+        <label htmlFor="message">{t('Mensagem')}</label>
         <Textarea 
+          id="message"
           rows={5} 
           placeholder={t('Mensagem')}
           value={message} 
           onChange={(e) => setMessage(e.target.value)} 
           required 
+          aria-required="true"
         ></Textarea>
+
         <Button type="submit">{t('Enviar')}</Button>
       </Form>
-      {status && <p>{status}</p>}
+      
+      {status && <p aria-live="polite">{status}</p>}
     </ContactContainer>
   );
 }

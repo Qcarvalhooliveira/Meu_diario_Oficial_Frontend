@@ -49,7 +49,7 @@ export function Homepage() {
 
   return (
     <HomepageContainer>
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className="keen-slider" aria-label={t("Slider de conteúdo informativo")}>
         <div className="keen-slider__slide">
           <div className="slide-content">
             <h1>{t('Bem-vindo ao Meu Diario Oficial!')}</h1>
@@ -61,31 +61,43 @@ export function Homepage() {
           <div className="slide-content">
             <h1>{t('Sobre Nós')}</h1>
             <p>{t('O Meu Diário Oficial é um serviço que facilita o acompanhamento de publicações oficiais da cidade de Salvador.')}</p>
-            <button onClick={() => navigate("/about")}>{t('Saiba mais')}</button>
+            <button onClick={() => navigate("/about")} aria-label={t('Saiba mais sobre nós')}>{t('Saiba mais')}</button>
           </div>
-          
         </div>
 
         <div className="keen-slider__slide">
           <div className="slide-content">
             <h1>{t('Precisando de Ajuda?')}</h1>
             <p>{t('Fale conosco e tire suas dúvidas sobre nossas publicações. Estamos aqui para ajudar!')}</p>
-            <button onClick={() => navigate("/contact")}>{t('Envie sua mensagem')}</button>
+            <button onClick={() => navigate("/contact")} aria-label={t('Envie sua mensagem de ajuda')}>{t('Envie sua mensagem')}</button>
           </div>
         </div>
 
-      <Arrow left onClick={() => instanceRef.current?.prev()}>&#8249;</Arrow>
-      <Arrow right onClick={() => instanceRef.current?.next()}>&#8250;</Arrow>
+        <Arrow 
+          left 
+          onClick={() => instanceRef.current?.prev()} 
+          aria-label={t("Slide anterior")}
+        >
+          &#8249;
+        </Arrow>
+        <Arrow 
+          right 
+          onClick={() => instanceRef.current?.next()} 
+          aria-label={t("Próximo slide")}
+        >
+          &#8250;
+        </Arrow>
 
-      <Dots>
-        {[...Array(3).keys()].map((idx) => (
-          <button
-            key={idx}
-            onClick={() => instanceRef.current?.moveToIdx(idx)}
-            className={`dot${currentSlide === idx ? ' active' : ''}`}
-          ></button>
-        ))}
-      </Dots>
+        <Dots>
+          {[...Array(3).keys()].map((idx) => (
+            <button
+              key={idx}
+              onClick={() => instanceRef.current?.moveToIdx(idx)}
+              className={`dot${currentSlide === idx ? ' active' : ''}`}
+              aria-label={t(`Ir para o slide ${idx + 1}`)}
+            ></button>
+          ))}
+        </Dots>
       </div>
     </HomepageContainer>
   );

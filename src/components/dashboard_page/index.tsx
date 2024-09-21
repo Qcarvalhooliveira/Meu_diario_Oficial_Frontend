@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { DashboardpageContainer, MenuButton,  Menu, MenuItem, ConfirmDialog, ConfirmButton, TimesSelected } from "./styles";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -17,13 +17,15 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
   const [selections, setSelections] = useState<string[]>([])
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const confirmDialogRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const fetchUserData = async () => {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        console.error("Token não encontrado. Faça o login primeiro.");
+        console.error(t("Token não encontrado. Faça o login primeiro."));
         navigate("/login");
         return;
       }
@@ -41,15 +43,15 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
           setUserId(id);
           setSelections(selections);
         } else {
-          console.error("Erro ao buscar os dados do usuário.");
+          console.error(t("Erro ao buscar os dados do usuário."));
         }
       } catch (error) {
-        console.error("Erro ao buscar os dados do usuário:", error);
+        console.error(t("Erro ao buscar os dados do usuário."), error);
       }
     };
 
     fetchUserData();
-  }, [navigate]);
+  }, [navigate, t]);
 
  
   const handleLogoutClick = () => {
@@ -73,13 +75,13 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
       });
 
       if (response.status === 200) {
-        alert("Usuário deletado com sucesso.");
+        alert(t("Usuário deletado com sucesso."));
         handleLogoutClick();
       } else {
         alert("Erro ao deletar usuário.");
       }
     } catch (error) {
-      console.error("Erro ao deletar usuário:", error);
+      console.error("Erro ao deletar usuário.", error);
       alert("Ocorreu um erro ao deletar o usuário. Tente novamente.");
     }
   };
@@ -88,24 +90,40 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
     return dayjs(dateString).format("DD/MM/YYYY");
   };
 
+  useEffect(() => {
+    if (showConfirm && confirmDialogRef.current) {
+      confirmDialogRef.current.focus();
+    }
+  }, [showConfirm]);
+
   return (
     <DashboardpageContainer>
       <h1>{t('Painel de Informações')}</h1>
 
-      <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
+      <MenuButton 
+        onClick={() => setMenuOpen(!menuOpen)} 
+        aria-label={t('Abrir Menu de Usuário')}>
         &#9776;
       </MenuButton>
 
       {menuOpen && (
         <Menu>
-          <MenuItem onClick={handleLogoutClick}>{t('Logout')}</MenuItem>
-          <MenuItem onClick={() => setShowConfirm(true)}>{t('Deletar Conta')}</MenuItem>
+          <MenuItem 
+            onClick={handleLogoutClick} 
+            aria-label={t('Fazer Logout')}>
+            {t('Logout')}
+          </MenuItem>
+          <MenuItem 
+            onClick={() => setShowConfirm(true)} 
+            aria-label={t('Deletar Conta')}>
+            {t('Deletar Conta')}
+          </MenuItem>
         </Menu>
       )}
 
       <p>{t('Bem-vindo')}, {userName}</p>
 
-      <TimesSelected >
+      <TimesSelected>
         <h3>{t('Aqui estão as datas em que seu nome foi mencionado no Diário Oficial:')}</h3>
         <ul>
           {selections.length > 0 ? (
@@ -116,14 +134,21 @@ export function Dashboardpage({ handleLogout }: DashboardpageProps) {
             <p>{t('Seu nome ainda não foi mencionado no Diário Oficial.')}</p>
           )}
         </ul>
-        </TimesSelected>
-
+      </TimesSelected>
 
       {showConfirm && (
-        <ConfirmDialog>
-          <p>{t('Você tem certeza que deseja deletar sua conta?')}</p>
-          <ConfirmButton onClick={handleDeleteAccount}>{t('Sim')}</ConfirmButton>
-          <ConfirmButton onClick={() => setShowConfirm(false)}>{t('Não')}</ConfirmButton>
+        <ConfirmDialog
+          role="dialog"
+          aria-labelledby="confirm-dialog-title"
+          aria-describedby="confirm-dialog-description"
+          ref={confirmDialogRef}
+          tabIndex={-1}
+        >
+          <p id="confirm-dialog-title">{t('Você tem certeza que deseja deletar sua conta?')}</p>
+          <div id="confirm-dialog-description">
+            <ConfirmButton onClick={handleDeleteAccount}>{t('Sim')}</ConfirmButton>
+            <ConfirmButton onClick={() => setShowConfirm(false)}>{t('Não')}</ConfirmButton>
+          </div>
         </ConfirmDialog>
       )}
     </DashboardpageContainer>

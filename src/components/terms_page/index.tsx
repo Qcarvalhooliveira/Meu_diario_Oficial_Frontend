@@ -9,7 +9,7 @@ export function Termspage() {
 return (
     <TermspageContainer>
         <h1>{t('Termos de Serviço')}</h1>
-        <div className="terms">
+        <div className="terms" role="contentinfo" aria-label={t('Termos de Serviço')}>
             <p>        
                 {t('Ao utilizar nossos serviços, você concorda com os seguintes termos:')}<br/><br/>
 

@@ -23,6 +23,7 @@ export const LoginpageContainer = styled.div`
     border-radius: 10px;
     max-width: 25rem;
     width: 100%;
+    gap: 0.5rem;
   }
 
   .input-group {

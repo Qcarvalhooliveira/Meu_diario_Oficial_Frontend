@@ -7,6 +7,7 @@ display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+ 
 
   h1 {
     text-align: center;
@@ -23,6 +24,8 @@ display: flex;
     border-radius: 10px;
     max-width: 25rem;
     width: 100%;
+    gap: 0.5rem;
+    
   }
 
   .input-group {

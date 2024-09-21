@@ -20,23 +20,37 @@ export function Header({ isLoggedIn }: HeaderProps) {
 
   return (
     <HeaderContainer>
-      <div className="logo" onClick={handleLogoNavigateToHomePage}>
-        <img src={logo} alt="logo_diario" />
-      </div>
-      <div
-        className={`menu-icon ${menuOpen ? "open" : ""}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        &#9776;
-      </div>
-      <div className={`side-links ${menuOpen ? "show" : ""}`}>
+    <div className="logo" onClick={handleLogoNavigateToHomePage}>
+      <img src={logo} alt={t("Logotipo do Meu Diário Oficial")} role="button" tabIndex={0} aria-label={t("Voltar para a página inicial")} />
+    </div>
+    <div
+      className={`menu-icon ${menuOpen ? "open" : ""}`}
+      onClick={() => setMenuOpen(!menuOpen)}
+      aria-label={t("Abrir menu")}
+      aria-expanded={menuOpen}
+      role="button"
+      tabIndex={0}
+    >
+      &#9776;
+    </div>
+    <nav className={`side-links ${menuOpen ? "show" : ""}`} aria-label={t("Navegação de links")}>
       {!isLoggedIn && (
         <>
-          <button onClick={() => navigate("/login")}>{t('Login')}</button>
-          <button onClick={() => navigate("/cadastrar")}>{t('Cadastrar')}</button>
+          <button 
+            onClick={() => navigate("/login")}
+            aria-label={t("Ir para a página de login")}
+          >
+            {t('Login')}
+          </button>
+          <button 
+            onClick={() => navigate("/cadastrar")}
+            aria-label={t("Ir para a página de cadastro")}
+          >
+            {t('Cadastrar')}
+          </button>
         </>
       )}
-      </div>
-    </HeaderContainer>
-  );
+    </nav>
+  </HeaderContainer>
+);
 }

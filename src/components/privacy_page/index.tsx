@@ -7,8 +7,10 @@ export function Privacypage() {
 
   return (
     <PrivacypageContainer>
-      <h1>{t('Política de Privacidade')}</h1>
-      <div className="privacy">
+      <h1 tabIndex={0} aria-label={t('Política de Privacidade')}>
+        {t('Política de Privacidade')}
+      </h1>
+      <div className="privacy" aria-live="polite" role="region" tabIndex={0}>
         <p>
             {t('Sua privacidade é importante para nós. Esta política descreve como o Meu Diário Oficial coleta, utiliza, e protege suas informações pessoais quando você utiliza nossos serviços.')}
           <br />
